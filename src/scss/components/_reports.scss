@@ -1,5 +1,8 @@
+@use '../utils/functions' as fn;
+
 .reports {
     grid-area: reports;
+    background-color: fn.get-color('dark-tertiary');
 }
 
 .reports-title {

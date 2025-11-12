@@ -82,3 +82,8 @@
         transition-property: $properties;
     }
 }
+
+@mixin font($weight) {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: $weight;
+}

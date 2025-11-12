@@ -1,14 +1,32 @@
 @use 'btn/btn' as btn with (
     $btn-layer-spacing: 4px
 );
+@use '../utils/functions' as fn;
+@use '../utils/mixins' as mx;
 
 .welcome {
     grid-area: welcome;
 }
 
 .page-title {
+    @include mx.font(400);
+    color: fn.get-color('light-secondary');
+    font-size: 16px;
 }
 .page-title-accent {
+    @include mx.font(600);
+    color: fn.get-color('light-primary');
+    font-size: 20px;
 }
 .welcome-btn {
+margin-top: 16px;
+}
+
+@include mx.mq('lg') {
+    .welcome {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: end;
+    }
 }

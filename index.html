@@ -106,6 +106,7 @@
         </svg>
         Overview
       </button>
+      <div class="wrapper-header">
       <label class="search-field">
         <svg class="search-icon" width="20" height="20">
           <use href="./src/img/icons.svg#icon-search"></use>
@@ -126,12 +127,13 @@
           <use href="./src/img/icons.svg#icon-bell"></use>
         </svg>
       </button>
+      </div>
     </header>
 
     <main class="main">
       <section class="welcome">
         <h1 class="page-title">
-          <span class="page-title-accent">Hi Yaroslav,</span>
+          <span class="page-title-accent">Hi Yaroslav,</span> <br>
           Welcome into Cat CRM Dashboard
         </h1>
         <button class="welcome-btn btn btn--primary" type="button">
@@ -152,6 +154,7 @@
           <div class="co-workers-container">
             <details class="co-workers-details">
               <summary class="co-workers-data">
+                <div class="wrapper">
                 <svg class="co-workers-icon" width="16" height="16">
                   <use class="plus" href="./src/img/icons.svg#icon-plus"></use>
                   <use
@@ -167,6 +170,7 @@
                       height="63" />
                   </div>
                   <p class="co-workers-caption">Andrew Mike</p>
+                </div>
                 </div>
                 <div class="co-workers-controls">
                   <button class="controls-btn" type="button">
@@ -186,14 +190,19 @@
                 </div>
               </summary>
               <div class="co-workers-info">
+                <div class="wrapper-info">
                 <h3 class="co-workers-position">Job position</h3>
                 <p>Develop</p>
+                </div>
+                <div class="wrapper-info">
                 <h3 class="co-workers-accept">Since</h3>
                 <p>2013</p>
+                </div>
               </div>
             </details>
             <details class="co-workers-details">
               <summary class="co-workers-data">
+                <div class="wrapper">
                 <svg class="co-workers-icon" width="16" height="16">
                   <use class="plus" href="./src/img/icons.svg#icon-plus"></use>
                   <use
@@ -209,6 +218,7 @@
                       height="63" />
                   </div>
                   <p class="co-workers-caption">Andrew Mike</p>
+                </div>
                 </div>
                 <div class="co-workers-controls">
                   <button class="controls-btn" type="button">
@@ -228,14 +238,19 @@
                 </div>
               </summary>
               <div class="co-workers-info">
+                <div class="wrapper-info">
                 <h3 class="co-workers-position">Job position</h3>
                 <p>Develop</p>
+                </div>
+                <div class="wrapper-info">
                 <h3 class="co-workers-accept">Since</h3>
                 <p>2013</p>
+                </div>
               </div>
             </details>
             <details class="co-workers-details">
               <summary class="co-workers-data">
+                <div class="wrapper">
                 <svg class="co-workers-icon" width="16" height="16">
                   <use class="plus" href="./src/img/icons.svg#icon-plus"></use>
                   <use
@@ -251,6 +266,7 @@
                       height="63" />
                   </div>
                   <p class="co-workers-caption">Andrew Mike</p>
+                </div>
                 </div>
                 <div class="co-workers-controls">
                   <button class="controls-btn" type="button">
@@ -270,14 +286,19 @@
                 </div>
               </summary>
               <div class="co-workers-info">
+                <div class="wrapper-info">
                 <h3 class="co-workers-position">Job position</h3>
                 <p>Develop</p>
+                </div>
+                <div class="wrapper-info">
                 <h3 class="co-workers-accept">Since</h3>
                 <p>2013</p>
+                </div>
               </div>
             </details>
             <details class="co-workers-details">
               <summary class="co-workers-data">
+                <div class="wrapper">
                 <svg class="co-workers-icon" width="16" height="16">
                   <use class="plus" href="./src/img/icons.svg#icon-plus"></use>
                   <use
@@ -293,6 +314,7 @@
                       height="63" />
                   </div>
                   <p class="co-workers-caption">Andrew Mike</p>
+                </div>
                 </div>
                 <div class="co-workers-controls">
                   <button class="controls-btn" type="button">
@@ -312,14 +334,19 @@
                 </div>
               </summary>
               <div class="co-workers-info">
+                <div class="wrapper-info">
                 <h3 class="co-workers-position">Job position</h3>
                 <p>Develop</p>
+                </div>
+                <div class="wrapper-info">
                 <h3 class="co-workers-accept">Since</h3>
                 <p>2013</p>
+                </div>
               </div>
             </details>
             <details class="co-workers-details">
               <summary class="co-workers-data">
+                <div class="wrapper">
                 <svg class="co-workers-icon" width="16" height="16">
                   <use class="plus" href="./src/img/icons.svg#icon-plus"></use>
                   <use
@@ -335,6 +362,7 @@
                       height="63" />
                   </div>
                   <p class="co-workers-caption">Andrew Mike</p>
+                </div>
                 </div>
                 <div class="co-workers-controls">
                   <button class="controls-btn" type="button">
@@ -354,14 +382,18 @@
                 </div>
               </summary>
               <div class="co-workers-info">
+                <div class="wrapper-info">
                 <h3 class="co-workers-position">Job position</h3>
                 <p>Develop</p>
+                </div>
+                <div class="wrapper-info">
                 <h3 class="co-workers-accept">Since</h3>
                 <p>2013</p>
+                </div>
               </div>
             </details>
 
-            <table class="co-workers-table">
+            <!-- <table class="co-workers-table">
               <caption class="visually-hidden">
                 Co-workers info
               </caption>
@@ -621,7 +653,7 @@
                   </td>
                 </tr>
               </tbody>
-            </table>
+            </table> -->
           </div>
         </div>
 
@@ -669,7 +701,7 @@
             </div>
             <div class="board-right">
               <p class="board-tag">Call</p>
-              <p class="badge error">Ended</p>
+              <p class="badge danger">Ended</p>
             </div>
           </li>
           <li class="board-item hide">
@@ -695,7 +727,7 @@
             </div>
           </li>
         </ul>
-        <button class="show-more-btn btn btn--secondary" type="button"><span class="btn-inner">Show more</span></button>
+        <button class="show-more-btn btn btn--frame" type="button"><span class="btn-inner">Show more</span></button>
       </section>
 
       <section class="tasks">

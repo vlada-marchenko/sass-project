@@ -1,5 +1,8 @@
+@use '../utils/functions' as fn;
+
 .tasks {
     grid-area: tasks;
+    background-color: fn.get-color('dark-tertiary');
 }
 
 .tasks-title {

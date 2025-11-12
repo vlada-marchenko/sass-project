@@ -1,82 +1,198 @@
-.co-workers {
-    grid-area: co-workers;
-}
+@use '../utils/functions' as fn;
+@use '../utils/mixins' as mx;
+@use '../utils/placeholders';
 
-.co-workers-wrapper {
-}
-.co-workers-title {
-}
-.co-workers-container {
-}
-.co-workers-details {
-}
-.co-workers-data {
-}
-.co-workers-icon {
-}
-.plus {
-}
-.minus {
-}
-.co-workers-bio {
-}
-.thumb {
-}
-.co-workers-caption {
-}
-.co-workers-controls {
-}
-.controls-btn {
-}
-.controls-btn-icon {
-}
-.success {
-}
-.error {
-}
-.co-workers-info {
-}
-.co-workers-position {
-}
-.co-workers-accept {
-}
-.co-workers-table {
-}
-.visually-hidden {
-}
-.co-workers-board {
-}
-.board {
-}
-.board-item {
-}
-.board-left {
-}
-.board-caption {
-}
-.board-details {
-}
-.board-coworker {
-}
-.person {
-}
-.person-thumb {
-}
-.person-avatar {
-}
-.person-caption {
-}
-.board-right {
-}
-.board-tag {
-}
-.badge {
-}
-.warning {
-}
-.hide {
-}
-.show-more-btn {
-    display: block;
-    margin: 0 auto;
-}
+@include mx.mq('md', 'max') {
+  @at-root (without: media) {
+    .co-workers-wrapper { @extend %section-frame; }
+    .co-workers-title   { @extend %section-title; }
+    .co-workers-caption { @extend %details; }
+    .co-workers-position,
+    .co-workers-accept  { @extend %details-accent; }
+  }}
+
+
+  .co-workers {
+      grid-area: co-workers;
+      // background-color: fn.get-color('dark-tertiary');
+  }
+
+  .co-workers-wrapper {
+      background-color: fn.get-color('dark-secondary');
+      padding: 16px;
+      gap: 28px;
+      border-radius: 12px;
+  }
+
+  .co-workers-title {
+      color: fn.get-color('light-secondary');
+      padding-bottom: 30px;
+      @include mx.font(400);
+  }
+
+  .co-workers-title span {
+      color: fn.get-color('light');
+      @include mx.font(500);
+  }
+
+  .co-workers-container {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+  }
+
+  .co-workers-data {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .wrapper {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+  }
+
+  .wrapper-info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .co-workers-icon {
+      border: 1px solid #92929D;
+      border-radius: 4px;
+  }
+
+  .plus, .minus {
+      fill: fn.get-color('light-secondary');
+      width: 8px;
+      height: 8px;
+  }
+
+  .co-workers-bio {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+  }
+
+  .thumb {
+      @include mx.frame(24px, 24px, true);
+  }
+
+  .co-workers-caption {
+      color: fn.get-color('light-secondary');
+  }
+
+  .co-workers-controls {
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+  }
+
+  .controls-btn-icon {
+      width: 20px;
+      height: 20px;
+  }
+
+  .success {
+      fill: fn.get-color('success');
+  }
+
+ 
+  .error {
+      fill: fn.get-color('danger');
+  }
+
+  .co-workers-info {
+      padding: 0 32px;
+      width: 300px;
+  }
+
+  .co-workers-position,
+  .co-workers-accept {
+      @include mx.font(500);
+      color: fn.get-color('light');
+  }
+
+  .board {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 40px;
+            margin-bottom: 20px;
+  }
+
+  .board-item {
+      background-color: fn.get-color('dark-secondary');
+      padding: 16px;
+      gap: 28px;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  }
+
+  .board-caption {
+      color: fn.get-color('light');
+  }
+
+  .board-details {
+      color: fn.get-color('light');
+  }
+
+  .board-details time {
+      color: fn.get-color('light-secondary');
+  }
+
+  .board-coworker {
+      display: flex;
+      flex-direction: row;
+      gap: 8px;
+      margin-top: 22px;
+  }
+
+  .person-avatar {
+      @include mx.frame(24px, 24px, true);
+  }
+
+  .person-caption {
+      color: fn.get-color('light-secondary');
+  }
+
+  .board-right {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      justify-content: space-between;
+  }
+
+  .board-tag {
+      color: fn.get-color('light-secondary');
+  }
+
+  .badge {
+      width: 96px;
+      height: 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+padding: 4px 8px;
+background: fn.get-color('warning');
+border-radius: 20px;
+@include mx.font(500);
+font-size: 14px;
+color: fn.get-color('light');
+
+  }
+
+  .danger {
+    background-color: fn.get-color('danger');
+  }
+
+  .show-more-btn {
+      display: block !important;
+      margin: 0 auto !important;
+      border: none;
+  }
