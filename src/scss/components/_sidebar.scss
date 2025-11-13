@@ -1,0 +1,64 @@
+@use '../utils/functions' as fn;
+@use '../utils/mixins' as mx;
+@use '../utils/placeholders';
+
+.head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 20px;
+}
+
+.logo {
+    color: fn.get-color('accent-primary');
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+}
+
+.divider {
+    width: 100%;
+    border: 1px solid fn.get-color('dark-tertiary');
+}
+
+.menu-btn-icon {
+    fill: fn.get-color('light');
+}
+
+.menu-item {
+    padding: 16px 20px;
+}
+.menu-link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    color: fn.get-color('light-tertiary');
+}
+
+.menu-icon {
+    fill: fn.get-color('light-tertiary');
+}
+
+.current {
+    color: fn.get-color('light');
+    fill: fn.get-color('light');
+}
+
+@include mx.mq('lg') {
+    .head {
+        padding: 15px 20px;
+    }
+
+    .menu-item {
+        padding: 20px 20px;
+    }
+
+    .menu-list {
+         margin-top: 15px;
+    }
+}
+

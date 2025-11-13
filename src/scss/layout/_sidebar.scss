@@ -22,6 +22,8 @@
         opacity: 1;
         pointer-events: initial;
         visibility: visible;
+        background-color: fn.get-color('dark');
+        width: 298px;
     }
     }
 

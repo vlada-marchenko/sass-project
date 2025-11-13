@@ -1,31 +1,103 @@
 @use '../utils/functions' as fn;
+@use '../utils/mixins' as mx;
 
 .tasks {
     grid-area: tasks;
     background-color: fn.get-color('dark-tertiary');
+  padding: 16px;
+  gap: 28px;
+  border-radius: 12px;
 }
 
 .tasks-title {
+
+            color: fn.get-color('light-secondary');
+  padding-bottom: 30px;
+  @include mx.font(400);
+  font-size: 14px;
+}
+
+.tasks-title span {
+  color: fn.get-color('light');
+  @include mx.font(500);
+  font-size: 16px;
 }
 .tasks-list {
 }
-.tasks-item {
+
+.wrapper-tasks {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+    width: 280px;
 }
+
+
+.tasks-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid fn.get-color('light-tertiary');
+    padding: 16px 0;
+}
+
+.tasks-item:last-child {
+    border-bottom: 1px solid fn.get-color('light-tertiary');
+}
+
 .tasks-checkbox {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 20px; 
+  width: 20px;
+  height: 20px;
+  border: 1px solid fn.get-color('light-tertiary'); 
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 .tasks-input {
+    width: 20px;
+    height: 20px;
+    border: 1px solid fn.get-color('light-tertiary');
 }
-.visually-hidden {
+
+.tasks-checkbox:has(.tasks-input:checked) {
+  background-color: fn.get-color('accent-primary');
+  border-color: fn.get-color('accent-primary');
 }
+
+.tasks-input:checked + .tasks-checkbox-icon {
+  opacity: 1;
+}
+
 .tasks-checkbox-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+transform: translate(-50%, -50%);
+    opacity: 0;
+    fill: fn.get-color('light');
 }
 .tasks-info {
 }
 .tasks-heading {
+      color: fn.get-color('light');
+  @include mx.font(500);
+  font-size: 16px;
 }
 .tasks-desc {
+
+            color: fn.get-color('light-secondary');
+  @include mx.font(400);
+  font-size: 14px;
 }
 .tasks-btn {
 }
 .tasks-btn-icon {
+    fill: fn.get-color('light-tertiary');
 }
