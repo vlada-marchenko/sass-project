@@ -1,72 +1,66 @@
 @use '../utils/functions' as fn;
 @use '../utils/mixins' as mx;
+@use '../utils/variables' as var;
+@use '../utils/placeholders';
+@use 'sass:map';
 
 .header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.search-field {
-
-}
+.search-field {}
 
 .menu-btn {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 10px;
-}
-.js-menu-open {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px; 
 }
 
+.js-menu-open {}
 
 .wrapper-header {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: map.get(var.$spacings, 'md'); 
 }
-.menu-btn-icon {
-    fill: fn.get-color('light')
-}
+
+.menu-btn-icon { fill: fn.get-color('light'); }
+
 .search-field {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
+
 .search-icon {
-    fill: fn.get-color('light-tertiary');
-    height: 20px;
+  fill: fn.get-color('light-tertiary');
+  height: 20px;
 }
-.search-input {
-      display: none;
-}
-.notification-btn {
-}
-.btn {
-}
-.notification-btn-icon {
-    fill: fn.get-color('light-tertiary')
-}
+
+.search-input { display: none; }
+
+.notification-btn {}
+.btn {}
+
+.notification-btn-icon { fill: fn.get-color('light-tertiary'); }
 
 @include mx.mq('lg') {
-    .menu-btn {
-        display: none;
-    }
+  .menu-btn { display: none; }
 
-    .search-input {
-        display: flex;
-        flex-direction: row;
-    }
+  .search-input {
+    display: flex;
+    flex-direction: row;
+  }
 
-    .search-field {
-        gap: 12px;
-    }
+  .search-field { gap: map.get(var.$paddings, 'md'); } 
 
-    .wrapper-header {
-        justify-content: space-between;
-        width: 100%;
-    }
+  .wrapper-header {
+    justify-content: space-between;
+    width: 100%;
+  }
 }

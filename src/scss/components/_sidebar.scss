@@ -1,64 +1,60 @@
 @use '../utils/functions' as fn;
 @use '../utils/mixins' as mx;
+@use '../utils/variables' as var;
 @use '../utils/placeholders';
+@use 'sass:map';
 
 .head {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: map.get(var.$paddings, 'md') map.get(var.$paddings, 'xl'); 
 }
 
 .logo {
-    color: fn.get-color('accent-primary');
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 8px;
-    font-size: 24px;
+  color: fn.get-color('accent-primary');
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: map.get(var.$paddings, 'md'); 
+  font-size: map.get(var.$font-sizes, 'xl'); 
 }
 
 .divider {
-    width: 100%;
-    border: 1px solid fn.get-color('dark-tertiary');
+  width: 100%;
+  border: 1px solid fn.get-color('dark-tertiary');
 }
 
-.menu-btn-icon {
-    fill: fn.get-color('light');
-}
+.menu-btn-icon { fill: fn.get-color('light'); }
 
 .menu-item {
-    padding: 16px 20px;
-}
-.menu-link {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 24px;
-    color: fn.get-color('light-tertiary');
+  padding: map.get(var.$paddings, 'lg') map.get(var.$paddings, 'xl'); 
 }
 
-.menu-icon {
-    fill: fn.get-color('light-tertiary');
+.menu-link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: map.get(var.$spacings, 'md'); 
+  color: fn.get-color('light-tertiary');
 }
+
+.menu-icon { fill: fn.get-color('light-tertiary'); }
 
 .current {
-    color: fn.get-color('light');
-    fill: fn.get-color('light');
+  color: fn.get-color('light');
+  fill: fn.get-color('light');
 }
 
 @include mx.mq('lg') {
-    .head {
-        padding: 15px 20px;
-    }
+  .head {
+    padding: map.get(var.$paddings, 'lg') map.get(var.$paddings, 'xl');
+  }
 
-    .menu-item {
-        padding: 20px 20px;
-    }
+  .menu-item {
+    padding: map.get(var.$paddings, 'lg') map.get(var.$paddings, 'xl');
+  }
 
-    .menu-list {
-         margin-top: 15px;
-    }
+  .menu-list { margin-top: map.get(var.$paddings, 'lg'); } 
 }
-

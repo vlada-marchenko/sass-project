@@ -1,35 +1,98 @@
 @use '../utils/functions' as fn;
+@use '../utils/mixins' as mx;
+@use '../utils/variables' as var;
+@use '../utils/placeholders';
+@use 'sass:map';
 
 .reports {
-    grid-area: reports;
-    background-color: fn.get-color('dark-tertiary');
+  grid-area: reports;
+  background-color: fn.get-color('dark-tertiary');
+  @extend %section-frame;
+  gap: map.get(var.$spacings, 'md');
 }
 
 .reports-title {
+  color: fn.get-color('light-secondary');
+  padding-bottom: map.get(var.$spacings, 'sm');
 }
+.reports-title span {
+  color: fn.get-color('light');
+  @include mx.font(map.get(var.$font-weights, 'Medium'));
+  font-size: map.get(var.$font-sizes, 'md');
+}
+
 .reports-list {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  margin-top: 8px;
 }
 .reports-item {
+  display: grid;
+  grid-template-columns:1fr minmax(91px, 1fr) auto; 
+  align-items: center;
+  column-gap: 30px; 
 }
 .reports-co-worker {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: map.get(var.$paddings, 'lg'); 
+    grid-column: 1;
 }
-.co-worker {
-}
-.co-worker-thumb {
-}
-.co-worker-avatar {
-}
-.co-worker-caption {
-}
+
 .reports-bar {
+  grid-column: 2;
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  height: 6px;
+  border: 0;
+  border-radius: 9999px;
+  overflow: hidden;
+  background: fn.get-color('dark-secondary');
+    min-width: unset;
+  flex: unset;
 }
-.progress-bar {
+.reports-bar::-webkit-progress-bar {
+  background-color: fn.get-color('dark-secondary');
+  border-radius: inherit;
 }
+.reports-bar::-webkit-progress-value {
+  background: linear-gradient(90deg, var(--bar-start), var(--bar-end));
+  border-radius: inherit;
+}
+
+.reports-bar::-moz-progress-bar {
+  background: linear-gradient(90deg, var(--bar-start), var(--bar-end));
+  border-radius: inherit;
+}
+
+.reports-item[data-status="up"]   { --bar-start: #{fn.get-color('success')}; --bar-end: #{fn.get-color('success')};
+  --icon-bg: #{fn.get-color('success')}; --icon-fg: #{fn.get-color('light')}; }
+.reports-item[data-status="dash"] { --bar-start: #{fn.get-color('warning')}; --bar-end: #{fn.get-color('warning')};
+  --icon-bg: #{fn.get-color('warning')}; --icon-fg: #{fn.get-color('light')}; }
+.reports-item[data-status="down"] { --bar-start: #{fn.get-color('danger')};  --bar-end: #{fn.get-color('danger')};
+  --icon-bg: #{fn.get-color('danger')};  --icon-fg: #{fn.get-color('light')}; }
+
 .reports-status {
+  display: inline-grid;
+  grid-column: 3; 
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  background: var(--icon-bg, fn.get-color('dark-secondary'));
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
+  color: var(--icon-fg, fn.get-color('light'));
 }
-.up {
-}
-.dash {
-}
-.down {
+
+.reports-status svg,
+.reports-status .up,
+.reports-status .dash,
+.reports-status .down {
+  width: 12px;
+  height: 12px;
+  display: block;
+  fill: fn.get-color('light');
 }

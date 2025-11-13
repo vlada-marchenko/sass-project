@@ -1,50 +1,47 @@
 @use '../utils/functions' as fn;
 @use '../utils/mixins' as mx;
+@use '../utils/variables' as var;
+@use '../utils/placeholders';
+@use 'sass:map';
 
 .tasks {
-    grid-area: tasks;
-    background-color: fn.get-color('dark-tertiary');
-  padding: 16px;
-  gap: 28px;
-  border-radius: 12px;
+  grid-area: tasks;
+  background-color: fn.get-color('dark-tertiary');
+  @extend %section-frame; 
+  gap: map.get(var.$spacings, 'md'); 
 }
 
 .tasks-title {
-
-            color: fn.get-color('light-secondary');
-  padding-bottom: 30px;
-  @include mx.font(400);
-  font-size: 14px;
+  color: fn.get-color('light-secondary');
+  padding-bottom: map.get(var.$spacings, 'sm'); 
 }
 
 .tasks-title span {
   color: fn.get-color('light');
-  @include mx.font(500);
-  font-size: 16px;
+  @include mx.font(map.get(var.$font-weights, 'Medium')); 
+  font-size: map.get(var.$font-sizes, 'md'); 
 }
-.tasks-list {
-}
+
+.tasks-list {}
 
 .wrapper-tasks {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-    width: 280px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px; 
+  width: 280px;
 }
-
 
 .tasks-item {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid fn.get-color('light-tertiary');
-    padding: 16px 0;
-}
-
-.tasks-item:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid fn.get-color('light-tertiary');
+  padding: map.get(var.$paddings, 'lg') 0; 
+  &:last-child {
     border-bottom: 1px solid fn.get-color('light-tertiary');
+  }
 }
 
 .tasks-checkbox {
@@ -52,18 +49,20 @@
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  flex: 0 0 20px; 
+  flex: 0 0 20px;
   width: 20px;
   height: 20px;
-  border: 1px solid fn.get-color('light-tertiary'); 
+  box-sizing: border-box;
+  border: 1px solid fn.get-color('light-tertiary');
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.2s ease;
+  @include mx.ease('fast', background-color, border-color, opacity);
 }
+
 .tasks-input {
-    width: 20px;
-    height: 20px;
-    border: 1px solid fn.get-color('light-tertiary');
+  width: 20px;
+  height: 20px;
+  border: 1px solid fn.get-color('light-tertiary');
 }
 
 .tasks-checkbox:has(.tasks-input:checked) {
@@ -76,28 +75,30 @@
 }
 
 .tasks-checkbox-icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-transform: translate(-50%, -50%);
-    opacity: 0;
-    fill: fn.get-color('light');
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  fill: fn.get-color('light');
 }
-.tasks-info {
-}
-.tasks-heading {
-      color: fn.get-color('light');
-  @include mx.font(500);
-  font-size: 16px;
-}
-.tasks-desc {
 
-            color: fn.get-color('light-secondary');
-  @include mx.font(400);
-  font-size: 14px;
+.tasks-info {}
+
+.tasks-heading {
+  color: fn.get-color('light');
+  @include mx.font(map.get(var.$font-weights, 'Medium')); 
+  font-size: map.get(var.$font-sizes, 'md'); 
 }
-.tasks-btn {
+
+.tasks-desc {
+  color: fn.get-color('light-secondary');
+  @include mx.font(map.get(var.$font-weights, 'Regular'));
+  font-size: map.get(var.$font-sizes, 'sm'); 
 }
+
+.tasks-btn {}
+
 .tasks-btn-icon {
-    fill: fn.get-color('light-tertiary');
+  fill: fn.get-color('light-tertiary');
 }

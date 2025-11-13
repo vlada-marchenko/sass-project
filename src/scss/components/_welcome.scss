@@ -1,32 +1,36 @@
 @use 'btn/btn' as btn with (
-    $btn-layer-spacing: 4px
+  $btn-layer-spacing: 4px
 );
 @use '../utils/functions' as fn;
 @use '../utils/mixins' as mx;
+@use '../utils/variables' as var;
+@use 'sass:map';
 
 .welcome {
-    grid-area: welcome;
+  grid-area: welcome;
 }
 
 .page-title {
-    @include mx.font(400);
-    color: fn.get-color('light-secondary');
-    font-size: 16px;
+  @include mx.font(map.get(var.$font-weights, 'Regular'));
+  color: fn.get-color('light-secondary');
+  font-size: map.get(var.$font-sizes, 'md'); 
 }
+
 .page-title-accent {
-    @include mx.font(600);
-    color: fn.get-color('light-primary');
-    font-size: 20px;
+  @include mx.font(map.get(var.$font-weights, 'SemiBold')); 
+  color: fn.get-color('light-primary');
+  font-size: map.get(var.$font-sizes, 'lg'); 
 }
+
 .welcome-btn {
-margin-top: 16px;
+  margin-top: map.get(var.$paddings, 'lg'); 
 }
 
 @include mx.mq('lg') {
-    .welcome {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: end;
-    }
+  .welcome {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end; 
+  }
 }
